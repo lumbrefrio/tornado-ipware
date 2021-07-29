@@ -7,12 +7,12 @@ import os
 import sys
 
 
-name = 'django-ipware'
-package = 'ipware'
-description = "A Django utility application that returns client's real IP address"
-url = 'https://github.com/un33k/django-ipware'
-author = 'Val Neekman'
-author_email = 'info@neekware.com'
+name = 'tornado-ipware'
+package = 'tornado_ipware'
+description = "A Tornado utility application that returns client's real IP address"
+url = 'https://github.com/lumbrefrio/tornado-ipware'
+author = 'Bill Batey'
+author_email = 'lumbrefrio@gmail.com'
 license = 'MIT'
 install_requires = ['']
 classifiers = [

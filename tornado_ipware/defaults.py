@@ -1,11 +1,11 @@
-from django.conf import settings
+from tornado.options import options
 
 
 # Search for the real IP address in the following order
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For
 # X-Forwarded-For: <client>, <proxy1>, <proxy2>
 # Configurable via settings.py
-IPWARE_META_PRECEDENCE_ORDER = getattr(settings,
+IPWARE_META_PRECEDENCE_ORDER = getattr(options,
     'IPWARE_META_PRECEDENCE_ORDER', (
         'HTTP_X_FORWARDED_FOR', 'X_FORWARDED_FOR',
         'HTTP_CLIENT_IP',
@@ -28,7 +28,7 @@ IPWARE_META_PRECEDENCE_ORDER = getattr(settings,
 # https://www.ietf.org/rfc/rfc6890.txt
 # Regex would be ideal here, but this is keeping it simple
 # Configurable via settings.py
-IPWARE_PRIVATE_IP_PREFIX = getattr(settings,
+IPWARE_PRIVATE_IP_PREFIX = getattr(options,
     'IPWARE_PRIVATE_IP_PREFIX', (
         '0.',  # messages to software
         '10.',  # class A private block

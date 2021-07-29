@@ -69,11 +69,11 @@ def is_loopback_ip(ip_str):
     return ip_str.startswith(defs.IPWARE_LOOPBACK_PREFIX)
 
 
-def get_request_meta(request, key):
+def get_request_header(request, key):
     """
     Given a key, it returns a cleaned up version of the value from request.META, or None
     """
-    value = request.META.get(key, request.META.get(key.replace('_', '-'), '')).strip()
+    value = request.headers.get(key, request.headers.get(key.replace('_', '-'), '')).strip()
     if value == '':
         return None
     return value
