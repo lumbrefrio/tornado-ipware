@@ -3,9 +3,11 @@ Tornado IPware
 
 **A Tornado application to retrieve client's IP address**
 
-[![status-image]][status-link]
-[![version-image]][version-link]
-[![coverage-image]][coverage-link]
+[comment]: <> ([![status-image]][status-link])
+
+[comment]: <> ([![version-image]][version-link])
+
+[comment]: <> ([![coverage-image]][coverage-link])
 
 Overview
 ====================
@@ -29,10 +31,14 @@ How to install
     3. git clone https://github.com/lumbrefrio/tornado-ipware
         a. cd tornado-ipware
         b. run python setup.py install
-    4. wget https://github.com/lumbrefrio/tornado-ipware/zipball/master
-        a. unzip the downloaded file
-        b. cd into tornado-ipware-* directory
-        c. run python setup.py install
+
+[comment]: <> (    4. wget https://github.com/lumbrefrio/tornado-ipware/zipball/master)
+
+[comment]: <> (        a. unzip the downloaded file)
+
+[comment]: <> (        b. cd into tornado-ipware-* directory)
+
+[comment]: <> (        c. run python setup.py install)
 
 
 How to use
@@ -61,7 +67,7 @@ Advanced users:
 
 - ### Precedence Order
 The default meta precedence order is top to bottom.  However, you may customize the order
-by providing your own `IPWARE_META_PRECEDENCE_ORDER` by adding it to your project's settings.py
+by providing your own `IPWARE_META_PRECEDENCE_ORDER` by adding it to your project's Tornado options.
 
    ```python
     # The default meta precedence order
@@ -86,12 +92,12 @@ get_client_ip(request, request_header_order=['X_FORWARDED_FOR', 'HTTP_X_FORWARDE
 ### Private Prefixes
 
 You may customize the prefixes to indicate an IP address is private. This is done by adding your
-own `IPWARE_PRIVATE_IP_PREFIX` to your project's settings.py.  IP addresses matching the following
+own `IPWARE_PRIVATE_IP_PREFIX` to your project's Tornado's options.  IP addresses matching the following
 prefixes are considered *private* & are **not** publicly routable.
 
    ```python
    # The default private IP prefixes
-   IPWARE_PRIVATE_IP_PREFIX = getattr(settings,
+   IPWARE_PRIVATE_IP_PREFIX = getattr(options,
       'IPWARE_PRIVATE_IP_PREFIX', (
         '0.',  # messages to software
         '10.',  # class A private block
@@ -138,12 +144,12 @@ prefixes are considered *private* & are **not** publicly routable.
 
 ### Trusted Proxies
 
-If your Django server is behind one or more known proxy server(s), you can filter out unwanted requests
+If your Tornado server is behind one or more known proxy server(s), you can filter out unwanted requests
 by providing the `trusted` proxy list when calling `get_client_ip(request, proxy_trusted_ips=['177.139.233.133'])`.
 In the following example, your load balancer (LB) can be seen as a `trusted` proxy.
 
    ```
-    `Real` Client  <public> <---> <public> LB (Server) <private> <--------> <private> Django Server
+    `Real` Client  <public> <---> <public> LB (Server) <private> <--------> <private> Tornado Server
                                                                       ^
                                                                       |
     `Fake` Client  <private> <---> <private> LB (Server) <private> ---^
@@ -164,12 +170,12 @@ In the following example, your load balancer (LB) can be seen as a `trusted` pro
 
 ### Proxy Count
 
-If your Django server is behind a *known* number of proxy server(s), you can filter out unwanted requests
+If your Tornado server is behind a *known* number of proxy server(s), you can filter out unwanted requests
 by providing the *number* of proxies when calling `get_client_ip(request, proxy_count=1)`.
 In the following example, your load balancer (LB) can be seen as the *only* proxy.
 
    ```
-    `Real` Client  <public> <---> <public> LB (Server) <private> <--------> <private> Django Server
+    `Real` Client  <public> <---> <public> LB (Server) <private> <--------> <private> Tornado Server
                                                                       ^
                                                                       |
                                           `Fake` Client  <private> ---^
@@ -191,12 +197,13 @@ can indicate `right-most` as your `proxy_order` when calling `get_client_ip(requ
 Please note that the [de-facto](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For) standard
 for the originating client IP address is  the `left-most` as per `<client>, <proxy1>, <proxy2>`.
 
-Running the tests
-====================
+[comment]: <> (Running the tests)
 
-To run the tests against the current environment:
+[comment]: <> (====================)
 
-    python manage.py test
+[comment]: <> (To run the tests against the current environment:)
+
+[comment]: <> (    python manage.py test)
 
 
 License
@@ -213,17 +220,21 @@ X.Y.Z Version
     `MINOR` version -- when you add functionality in a backwards-compatible manner, and
     `PATCH` version -- when you make backwards-compatible bug fixes.
 
-[status-image]: https://travis-ci.org/un33k/django-ipware.svg?branch=master
-[status-link]: https://travis-ci.org/un33k/django-ipware
+[comment]: <> ([status-image]: https://travis-ci.org/un33k/django-ipware.svg?branch=master)
 
-[version-image]: https://img.shields.io/pypi/v/django-ipware.svg
-[version-link]: https://pypi.python.org/pypi/django-ipware
+[comment]: <> ([status-link]: https://travis-ci.org/un33k/django-ipware)
 
-[coverage-image]: https://coveralls.io/repos/un33k/django-ipware/badge.svg
-[coverage-link]: https://coveralls.io/r/un33k/django-ipware
+[comment]: <> ([version-image]: https://img.shields.io/pypi/v/django-ipware.svg)
 
-[download-image]: https://img.shields.io/pypi/dm/django-ipware.svg
-[download-link]: https://pypi.python.org/pypi/django-ipware
+[comment]: <> ([version-link]: https://pypi.python.org/pypi/django-ipware)
+
+[comment]: <> ([coverage-image]: https://coveralls.io/repos/un33k/django-ipware/badge.svg)
+
+[comment]: <> ([coverage-link]: https://coveralls.io/r/un33k/django-ipware)
+
+[comment]: <> ([download-image]: https://img.shields.io/pypi/dm/django-ipware.svg)
+
+[comment]: <> ([download-link]: https://pypi.python.org/pypi/django-ipware)
 
 
 Sponsors
