@@ -1,4 +1,4 @@
-Django IPware
+Tornado IPware
 ====================
 
 **A Tornado application to retrieve client's IP address**
