@@ -1,7 +1,7 @@
 Django IPware
 ====================
 
-**A Django application to retrieve client's IP address**
+**A Tornado application to retrieve client's IP address**
 
 [![status-image]][status-link]
 [![version-image]][version-link]
@@ -24,14 +24,14 @@ planning to include `ipware` in any authentication, security or *anti-fraud* rel
 How to install
 ====================
 
-    1. easy_install django-ipware
-    2. pip install django-ipware
-    3. git clone http://github.com/un33k/django-ipware
-        a. cd django-ipware
+    1. easy_install tornado-ipware
+    2. pip install tornado-ipware
+    3. git clone https://github.com/lumbrefrio/tornado-ipware
+        a. cd tornado-ipware
         b. run python setup.py install
-    4. wget https://github.com/un33k/django-ipware/zipball/master
+    4. wget https://github.com/lumbrefrio/tornado-ipware/zipball/master
         a. unzip the downloaded file
-        b. cd into django-ipware-* directory
+        b. cd into tornado-ipware-* directory
         c. run python setup.py install
 
 
@@ -41,7 +41,7 @@ How to use
    ```python
     # In a view or a middleware where the `request` object is available
 
-    from ipware import get_client_ip
+    from tornado_ipware import get_client_ip
     client_ip, is_routable = get_client_ip(request)
     if client_ip is None:
        # Unable to get the client's IP address
